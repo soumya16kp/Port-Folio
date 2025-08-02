@@ -22,8 +22,8 @@ export default function About() {
         
         // Cyan dot orbits around pink dot (moon-like)
         const cyanAngle = time * speed * 2;
-        const cyanX = pinkX + Math.cos(cyanAngle) * radius * 0.6;
-        const cyanY = pinkY + Math.sin(cyanAngle) * radius * 0.6;
+        const cyanX = pinkX + Math.cos(cyanAngle) * radius ;
+        const cyanY = pinkY + Math.sin(cyanAngle) * radius  ;
         
         pinkDotRef.current.style.transform = `translate(${pinkX}px, ${pinkY}px)`;
         cyanDotRef.current.style.transform = `translate(${cyanX}px, ${cyanY}px)`;
@@ -33,20 +33,21 @@ export default function About() {
     
     const animationId = requestAnimationFrame(updatePosition);
     return () => cancelAnimationFrame(animationId);
+
   }, []);
 
   return (
-    <section id="about" className="relative min-h-screen flex items-center justify-center bg-gray-900 px-6 py-24 overflow-hidden">
+    <section id="about" className=" min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
+      <div className="absolute inset-0 overflow-hidden opacity-02">
         {/* Planetary motion dots */}
-        <motion.div
+        {/* <motion.div
           ref={pinkDotRef}
-          className="absolute w-16 h-16 bg-neon-pink rounded-full mix-blend-screen filter blur-xl"
-          animate={{
-            opacity: [0.3, 0.7, 0.3],
-            scale: [0.8, 1.2, 0.8]
-          }}
+          className="absolute w-40 h-40 bg-neon-pink rounded-full mix-blend-screen filter blur-3xl"
+            animate={{
+              opacity: [0.5, 0.9, 0.5],
+              scale: [6, 7.5, 6],
+            }} 
           transition={{
             duration: 3,
             repeat: Infinity,
@@ -56,9 +57,9 @@ export default function About() {
         
         <motion.div
           ref={cyanDotRef}
-          className="absolute w-20 h-20 bg-neon-cyan rounded-full mix-blend-screen filter blur-xl"
+          className="absolute w-20 h-20 bg-neon-cyan rounded-full mix-blend-screen filter blur-md"
           animate={{
-            opacity: [0.2, 0.9, 0.2],
+            opacity: [0.5, 0.9, 0.5],
             scale: [0.7, 1.1, 0.7]
           }}
           transition={{
@@ -67,22 +68,37 @@ export default function About() {
             ease: "easeInOut",
             delay: 0.5
           }}
-        />
+        /> */}
       </div>
-      
+        <motion.div
+          className="fixed -left-20 -bottom-120 w-80 h-80 bg-neon-green rounded-full mix-blend-screen filter blur-xl opacity-20 z-0"
+          animate={{
+            opacity: [0.25, 0.4, 0.25],
+            scale: [0.9, 1.1, 0.9],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="relative max-w-5xl mx-auto z-10"
       >
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center px-12 py-8 
+                bg-white/10 backdrop-blur-md border border-white/20 
+                rounded-2xl shadow-lg transition-all duration-300 
+                hover:shadow-[0_0_15px_8px_rgba(128,0,255,0.5)]">
+
           {/* Text content */}
           <div>
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: 0.5, duration: 10 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">About</span> Me

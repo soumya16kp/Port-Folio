@@ -48,43 +48,43 @@ const categories = [
   {
     title: "Backend",
     items: [
-      { icon: <FaNodeJs size={48} />, name: "Node.js", color: "text-green-500" },
-      { icon: <SiExpress size={48} />, name: "Express", color: "text-gray-300" },
-      { icon: <SiDjango size={48} />, name: "Django", color: "text-green-700" },
-      { icon: <SiAppwrite size={48} />, name: "Appwrite", color: "text-pink-500" },
+      { icon: <FaNodeJs size={70} />, name: "Node.js", color: "text-green-500" },
+      { icon: <SiExpress size={75} />, name: "Express", color: "text-gray-300" },
+      { icon: <SiDjango size={75} />, name: "Django", color: "text-green-700" },
+      { icon: <SiAppwrite size={75} />, name: "Appwrite", color: "text-pink-500" },
     ]
   },
   {
     title: "Databases & Tools",
     items: [
-      { icon: <SiMongodb size={48} />, name: "MongoDB", color: "text-green-600" },
-      { icon: <SiPostgresql size={48} />, name: "PostgreSQL", color: "text-blue-600" },
-      { icon: <SiMysql size={48} />, name: "MySQL", color: "text-yellow-500" },
-      { icon: <FaGithub size={48} />, name: "GitHub", color: "text-white" },
-      { icon: <FaDocker size={48} />, name: "Docker", color: "text-blue-400" },
+      { icon: <SiMongodb size={75} />, name: "MongoDB", color: "text-green-600" },
+      { icon: <SiPostgresql size={75} />, name: "PostgreSQL", color: "text-blue-600" },
+      { icon: <SiMysql size={75} />, name: "MySQL", color: "text-yellow-500" },
+      { icon: <FaGithub size={75} />, name: "GitHub", color: "text-white" },
+      { icon: <FaDocker size={75} />, name: "Docker", color: "text-blue-400" },
     ]
   }
 ];
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="relative bg-black text-white py-24 px-6 overflow-hidden">
+    <section id="techstack" className="relative bg-gray-900  text-white py-24 px-6 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-pink rounded-full filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-neon-cyan rounded-full filter blur-3xl animate-float-delay"></div>
+      <div className="absolute inset-0 opacity-50">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-pink rounded-full filter blur-md animate-float"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-neon-cyan rounded-full filter blur-md animate-float-delay"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 70 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-green">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">
               Tech Stack
             </span>
           </h2>
@@ -97,10 +97,11 @@ export default function TechStack() {
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.1, duration: 1.2}}
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-neon-cyan/30 transition-all duration-300"
-            >
+              className="bg-gray-900/60 backdrop-blur-xl border-2 border-gray-700 rounded-xl p-6 
+               hover:border-neon-cyan/30 hover:scale-105 transition-transform duration-300"
+              >
               <h3 className="text-xl font-semibold text-neon-pink mb-6 flex items-center">
                 <span className="w-3 h-3 bg-neon-pink rounded-full mr-3 animate-pulse"></span>
                 {category.title}
