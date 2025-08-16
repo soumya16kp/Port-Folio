@@ -37,11 +37,11 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className=" min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+    <section id="about" className=" min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden pt-16 ">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-02">
         {/* Planetary motion dots */}
-        {/* <motion.div
+        <motion.div
           ref={pinkDotRef}
           className="absolute w-40 h-40 bg-neon-pink rounded-full mix-blend-screen filter blur-3xl"
             animate={{
@@ -68,20 +68,9 @@ export default function About() {
             ease: "easeInOut",
             delay: 0.5
           }}
-        /> */}
-      </div>
-        <motion.div
-          className="fixed -left-20 -bottom-120 w-80 h-80 bg-neon-green rounded-full mix-blend-screen filter blur-xl opacity-20 z-0"
-          animate={{
-            opacity: [0.25, 0.4, 0.25],
-            scale: [0.9, 1.1, 0.9],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
         />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}

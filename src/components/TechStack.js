@@ -68,12 +68,9 @@ const categories = [
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="relative bg-gray-900  text-white py-24 px-6 overflow-hidden">
+    <section id="techstack" className="relative  text-white py-16 px-6 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-pink rounded-full filter blur-md animate-float"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-neon-cyan rounded-full filter blur-md animate-float-delay"></div>
-      </div>
+      
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -88,32 +85,46 @@ export default function TechStack() {
               Tech Stack
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-pink to-neon-purple mx-auto rounded-full"></div>
+          <div className="w-40 h-1 bg-gradient-to-r from-neon-pink to-neon-purple mx-auto rounded-full"></div>
         </motion.div>
-
+      
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 1.2}}
+              transition={{               
+                // delay: index * 0.1,
+                duration: 0.5,
+                ease: "easeInOut"
+              }}
+              
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-gray-900/60 backdrop-blur-xl border-2 border-gray-700 rounded-xl p-6 
-               hover:border-neon-cyan/30 hover:scale-105 transition-transform duration-300"
-              >
-              <h3 className="text-xl font-semibold text-neon-pink mb-6 flex items-center">
-                <span className="w-3 h-3 bg-neon-pink rounded-full mr-3 animate-pulse"></span>
+              className="
+               
+                bg-white/5 backdrop-blur-xl border-2 border-white/20 rounded-xl p-6
+                transition-colors duration-0
+                hover:border-neon-cyan/30 
+              "
+               style={{
+                    transition: 'box-shadow 0s linear',
+                  }}
+                whileHover={{ scale: 1.05 }}
+            >
+
+              <h3 className="text-2xl pb-2 font-bold border-b-2 border-gray-700 text-neon-purple mb-6 flex items-center">
+                <span className="w-3 h-3  bg-neon-pink rounded-full mr-3 animate-pulse"></span>
                 {category.title}
               </h3>
               
               <div className="overflow-x-auto pb-4">
-                <div className="flex space-x-4 w-max min-w-full">
+                <div className="flex space-x-4 w-max min-w-full pt-2">
                   {category.items.map((item, itemIndex) => (
                     <motion.div
                       key={item.name}
                       whileHover={{ scale: 1.05 }}
-                      className="flex flex-col items-center p-6 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-neon-cyan/50 transition-all min-w-[140px]"
+                      className="flex flex-col items-center p-4 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-neon-cyan/50 transition-all min-w-[140px]"
                     >
                       <div className={`${item.color} mb-4 text-5xl drop-shadow-[0_0_12px_rgba(0,255,255,0.4)]`}>
                         {item.icon}

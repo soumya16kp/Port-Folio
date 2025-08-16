@@ -35,12 +35,23 @@ module.exports = {
         'neon-lg': '0 0 5px 0px currentColor, 0 0 10px 0px currentColor, 0 0 20px 0px currentColor',
         'neon-xl': '0 0 5px 0px currentColor, 0 0 15px 0px currentColor, 0 0 25px 0px currentColor',
       },
+      // MERGED ANIMATIONS
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-delay': 'float 6s ease-in-out infinite 2s',
         'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'pulse-neon': 'pulse-neon 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'morph-slow': 'morph 15s ease-in-out infinite',
+        'morph-slow-delay': 'morph 15s ease-in-out 3s infinite',
+        'spin-slow': 'spin 20s linear infinite',
+        'twinkle': 'twinkle 5s ease-in-out infinite',
+        'shooting-star': 'shooting-star 3s linear infinite',
+        'nebula-pulse': 'nebula-pulse 15s ease-in-out infinite',
+        'nebula-pulse-delay': 'nebula-pulse 20s ease-in-out 5s infinite',
+        'pulse-slow': 'pulse 10s ease-in-out infinite',
+        'pulse-very-slow': 'pulse 20s ease-in-out infinite',
       },
+      // MERGED KEYFRAMES
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
@@ -50,6 +61,30 @@ module.exports = {
           '0%, 100%': { opacity: '0.5', boxShadow: '0 0 5px 0px currentColor' },
           '50%': { opacity: '1', boxShadow: '0 0 20px 5px currentColor' },
         },
+        morph: {
+          '0%, 100%': {
+            transform: 'translate(0px, 0px) scale(1)',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+          },
+          '50%': {
+            transform: 'translate(100px, 150px) scale(1.2)',
+            borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%',
+          },
+        },
+        twinkle: {
+          '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.2)' },
+        },
+        'shooting-star': {
+          '0%': { transform: 'translate(0, 0)', opacity: '0' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { transform: 'translate(300px, 300px)', opacity: '0' },
+        },
+        'nebula-pulse': {
+          '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.05)' },
+        },
       },
       backdropBlur: {
         xs: '2px',
@@ -57,6 +92,9 @@ module.exports = {
         md: '8px',
         lg: '12px',
         xl: '20px',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
