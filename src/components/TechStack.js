@@ -113,7 +113,7 @@ export default function TechStack() {
                 whileHover={{ scale: 1.05 }}
             >
 
-              <h3 className="text-2xl pb-2 font-bold border-b-2 border-gray-700 text-neon-purple mb-6 flex items-center">
+              <h3 className="text-2xl pb-2 font-semibold border-b-2 border-gray-700 text-white mb-6 flex items-center">
                 <span className="w-3 h-3  bg-neon-pink rounded-full mr-3 animate-pulse"></span>
                 {category.title}
               </h3>
