@@ -9,7 +9,7 @@ const projects = [
     title: "Portfolio Website",
     description: "A sleek personal portfolio built with React, Tailwind CSS, and Framer Motion.",
     tech: ["React", "Tailwind", "Framer Motion"],
-    github: "#",
+    github: "",
     live: "#",
     accentColor: "pink", // Use simple names for mapping
     images: [
@@ -21,9 +21,9 @@ const projects = [
   {
     title: "Attendance Tracker",
     description: "A full-stack class attendance tracking app with real-time updates.",
-    tech: ["React", "Appwrite", "Tailwind"],
-    github: "#",
-    live: "#",
+    tech: ["React", "Appwrite"],
+    github: "https://github.com/soumya16kp/Attendance-Management",
+    live: "https://attendance-management-wheat.vercel.app/",
     accentColor: "cyan", // Use simple names for mapping
     images: [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
@@ -32,11 +32,11 @@ const projects = [
     ]
   },
   {
-    title: "Blog Platform",
-    description: "A blogging platform with Django backend and PostgreSQL database.",
+    title: "Temple Oasis ",
+    description: "Empowering spiritual contributions through a modern, digital experience" ,
     tech: ["Django", "PostgreSQL", "Bootstrap"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/soumya16kp/Temple-Oasis",
+    live: "temple-oasis.vercel.app",
     accentColor: "purple", // Use simple names for mapping
     images: [
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
@@ -94,7 +94,7 @@ const ProjectCard = ({ project }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       viewport={{ once: true, amount: 0.2 }}
-      className="group relative h-full"
+      className="group relative h-full "
     >
       {/* Neon glow effect on hover */}
       <div className={`absolute -inset-1.5 ${colors.bg} rounded-xl blur opacity-0 group-hover:opacity-25 transition-opacity duration-300 z-0`}></div>
@@ -112,7 +112,7 @@ const ProjectCard = ({ project }) => {
                 opacity: index === currentImageIndex ? 1 : 0,
                 scale: index === currentImageIndex ? 1 : 1.05
               }}
-              transition={{ duration: 0.6, ease: "easeInOut" }} // Smoother fade transition
+              transition={{ duration: 0.6, ease: "easeInOut" }} 
               className="absolute inset-0"
             >
               <img 
@@ -184,7 +184,7 @@ const ProjectCard = ({ project }) => {
 // --- MAIN SECTION COMPONENT ---
 export default function Projects() {
   return (
-    <section id="projects" className="relative text-white py-16  px-4 sm:px-6 overflow-hidden">
+    <section id="projects" className="relative text-white pt-16 pb-16 px-4 sm:px-6 overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -195,7 +195,7 @@ export default function Projects() {
           className="text-center mb-14"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-green">
+            <span className="text-transparent  bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">
               My Projects
             </span>
           </h2>

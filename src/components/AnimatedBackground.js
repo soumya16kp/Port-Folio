@@ -1,23 +1,83 @@
-// components/AnimatedBackground.jsx
-import React from 'react';
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const AnimatedBackground = () => {
+    const pinkDotRef = useRef(null);
+  const cyanDotRef = useRef(null);
+
+  useEffect(() => {
+    const updatePosition = (time) => {
+      if (pinkDotRef.current && cyanDotRef.current) {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const radius = 200;
+        const speed = 0.0005;
+        
+        // Pink dot orbits around center
+        const pinkAngle = time * speed;
+        const pinkX = centerX + Math.cos(pinkAngle) * radius;
+        const pinkY = centerY + Math.sin(pinkAngle) * radius;
+        
+        // Cyan dot orbits around pink dot (moon-like)
+        const cyanAngle = time * speed * 2;
+        const cyanX = pinkX + Math.cos(cyanAngle) * radius ;
+        const cyanY = pinkY + Math.sin(cyanAngle) * radius  ;
+        
+        pinkDotRef.current.style.transform = `translate(${pinkX}px, ${pinkY}px)`;
+        cyanDotRef.current.style.transform = `translate(${cyanX}px, ${cyanY}px)`;
+      }
+      requestAnimationFrame(updatePosition);
+    };
+    
+    const animationId = requestAnimationFrame(updatePosition);
+    return () => cancelAnimationFrame(animationId);
+
+  }, []);
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-dark -z-50 overflow-hidden">
       {/* Cyberpunk grid overlay */}
       <div className="absolute inset-0 opacity-5 bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]" 
            style={{backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)'}}>
       </div>
-
+            <div className="absolute inset-0 overflow-hidden opacity-02">
+        Planetary motion dots
+        <motion.div
+          ref={pinkDotRef}
+          className="absolute w-40 h-40 bg-neon-pink rounded-full mix-blend-screen filter blur-2xl"
+            animate={{
+              opacity: [0.5, 0.9, 0.5],
+              scale: [6.5, 7.5, 6.5],
+            }} 
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        <motion.div
+          ref={cyanDotRef}
+          className="absolute w-24 h-24 bg-neon-cyan rounded-full mix-blend-screen filter blur-md"
+          animate={{
+            opacity: [0.5, 0.9, 0.5],
+            scale: [0.7, 1.1, 0.7]
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+      </div>
       <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-neon-pink rounded-full filter blur-md animate-float"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-neon-cyan rounded-full filter blur-md animate-float-delay"></div>
+        {/* <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-neon-pink rounded-full filter blur-md animate-float"></div> */}
+        <div className="absolute -top-24 -right-24 w-48 h-48 bg-neon-cyan rounded-full filter blur-md animate-float-delay"></div>
         <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-neon-yellow rounded-full filter blur-3xl animate-float-delay"></div>
       </div>
 
-              <motion.div
-          className="fixed -left-20 bottom-40 w-80 h-80 bg-neon-green rounded-full mix-blend-screen filter blur-2xl opacity-20 z-0"
+          <motion.div
+          className="fixed -left-32 bottom-40 w-80 h-80 bg-neon-green rounded-full mix-blend-screen filter blur-2xl opacity-20 z-0"
           animate={{
             opacity: [0.25, 0.4, 0.25],
             scale: [0.95, 1.0, 0.95],

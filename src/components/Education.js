@@ -4,10 +4,9 @@ import { FaGraduationCap, FaSchool, FaUniversity } from "react-icons/fa";
 
 const education = [
   {
-    degree: "Bachelor of Technology (B.Tech) in Computer Science",
-    institution: "ABC Institute of Technology",
-    duration: "2021 – 2025",
-    score: "8.9 CGPA",
+    degree: "Bachelor of Technology (B.Tech) Electronics And Telecommunication",
+    institution: "IIIT Bhubhaneshwar ",
+    duration: "2023 – 2027",
     icon: <FaUniversity className="text-3xl" />,
     color: "text-neon-yellow",
     bgColor: "bg-neon-yellow/10",
@@ -15,9 +14,8 @@ const education = [
   },
   {
     degree: "Higher Secondary (Class 12)",
-    institution: "XYZ Senior Secondary School",
-    duration: "2019 – 2021",
-    score: "93.4%",
+    institution: "Kendriya Vidyalaya SaltLake ",
+    duration: "2021 – 2023",
     icon: <FaSchool className="text-3xl" />,
     color: "text-neon-pink",
     bgColor: "bg-neon-pink/10",
@@ -25,9 +23,8 @@ const education = [
   },
   {
     degree: "Secondary (Class 10)",
-    institution: "XYZ Senior Secondary School",
-    duration: "2017 – 2019",
-    score: "95.6%",
+    institution: "Kendriya Vidyalaya SaltLake ",
+    duration: "2020– 2021",
     icon: <FaGraduationCap className="text-3xl" />,
     color: "text-neon-cyan",
     bgColor: "bg-neon-cyan/10",
@@ -37,7 +34,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="relative  text-white  px-6 overflow-hidden">
+    <section id="education" className="relative  text-white pt-16 pb-16  px-6 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-yellow rounded-full filter blur-3xl animate-float"></div>
@@ -53,7 +50,7 @@ export default function Education() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-cyan">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">
               Education
             </span>
           </h2>

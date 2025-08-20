@@ -1,75 +1,13 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
-import { useEffect, useRef } from "react";
+
 
 export default function About() {
-  const pinkDotRef = useRef(null);
-  const cyanDotRef = useRef(null);
 
-  useEffect(() => {
-    const updatePosition = (time) => {
-      if (pinkDotRef.current && cyanDotRef.current) {
-        // Planetary motion parameters
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        const radius = 150;
-        const speed = 0.0005;
-        
-        // Pink dot orbits around center
-        const pinkAngle = time * speed;
-        const pinkX = centerX + Math.cos(pinkAngle) * radius;
-        const pinkY = centerY + Math.sin(pinkAngle) * radius;
-        
-        // Cyan dot orbits around pink dot (moon-like)
-        const cyanAngle = time * speed * 2;
-        const cyanX = pinkX + Math.cos(cyanAngle) * radius ;
-        const cyanY = pinkY + Math.sin(cyanAngle) * radius  ;
-        
-        pinkDotRef.current.style.transform = `translate(${pinkX}px, ${pinkY}px)`;
-        cyanDotRef.current.style.transform = `translate(${cyanX}px, ${cyanY}px)`;
-      }
-      requestAnimationFrame(updatePosition);
-    };
-    
-    const animationId = requestAnimationFrame(updatePosition);
-    return () => cancelAnimationFrame(animationId);
-
-  }, []);
 
   return (
-    <section id="about" className=" min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden pt-16 ">
+    <section id="about" className=" min-h-screen flex items-center justify-center overflow-hidden pt-16 ">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-02">
-        {/* Planetary motion dots */}
-        <motion.div
-          ref={pinkDotRef}
-          className="absolute w-40 h-40 bg-neon-pink rounded-full mix-blend-screen filter blur-3xl"
-            animate={{
-              opacity: [0.5, 0.9, 0.5],
-              scale: [6, 7.5, 6],
-            }} 
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          ref={cyanDotRef}
-          className="absolute w-20 h-20 bg-neon-cyan rounded-full mix-blend-screen filter blur-md"
-          animate={{
-            opacity: [0.5, 0.9, 0.5],
-            scale: [0.7, 1.1, 0.7]
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5
-          }}
-        />
-      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}

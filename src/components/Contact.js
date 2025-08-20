@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { FiSend, FiTwitter, FiLinkedin, FiGithub, FiDribbble } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import contactIllustration from '../images/5143151.jpg'; // Update path to your image
+import contactIllustration from '../images/Contact us-rafiki.svg'; // Update path to your image
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -33,8 +33,18 @@ const ContactPage = () => {
   };
 
   return (
+    <div className="text-center mb-8">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">
+          Contact
+        </span>
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-neon-pink to-neon-purple mx-auto rounded-full mb-12"></div>
+
     <div className="relative min-h-screen overflow-hidden flex items-center justify-center p-4 sm:p-6">
       {/* Animated Gradient Background */}
+
+
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full "></div>
         <div className="absolute inset-0 bg-noise opacity-10"></div>
@@ -45,51 +55,52 @@ const ContactPage = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative w-full max-w-6xl bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden z-10 flex flex-col lg:flex-row"
+        className="relative w-full max-w-6xl bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl overflow-hidden z-10 flex flex-col lg:flex-row"
         style={{
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
           background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)'
         }}
       >
-        {/* Illustration Section (Left) */}
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="w-full lg:w-2/5 bg-gradient-to-br from-indigo-400/10 to-purple-400/10 flex items-center justify-center p-8 md:p-12 min-h-[300px] sm:min-h-[400px] lg:min-h-auto"
-        >
-          <motion.img 
-            src={contactIllustration} 
-            alt="Contact illustration"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
-            className="w-full h-auto max-h-[300px] sm:max-h-[400px] lg:max-h-[500px] object-contain drop-shadow-xl"
-          />
-        </motion.div>
+      {/* Illustration Section (Left) */}
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="w-full bg-gradient-to-br from-indigo-400/10 to-purple-400/10 flex flex-col items-center justify-center p-8 md:p-12 min-h-[400px]"
+      > 
+        {/* Text Section */}
+        <div className="text-center mb-10">
+          <motion.h1 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70"
+          >
+            Let's Work Together
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-white/80 max-w-md mx-auto"
+          >
+            Get in touch to discuss your project or just say hello!
+          </motion.p>
+        </div>
 
-        {/* Form Section (Right) */}
+        {/* Image Section */}
+        <motion.img 
+          src={contactIllustration} 
+          alt="Contact illustration"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
+          className="w-full max-w-[6600px] sm:max-w-[700px] lg:max-w-[700px] h-auto object-contain drop-shadow-xl"
+        />
+      </motion.div>
+
         <div className="w-full lg:w-3/5 p-8 md:p-12">
-          {/* Header */}
-          <div className="text-center mb-10">
-            <motion.h1 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70"
-            >
-              Let's Work Together
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-white/80 max-w-md mx-auto"
-            >
-              Get in touch to discuss your project or just say hello!
-            </motion.p>
-          </div>
-
+    
           {/* Contact Form */}
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <motion.div
@@ -242,6 +253,7 @@ const ContactPage = () => {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
         }
       `}</style>
+    </div>
     </div>
   );
 };
