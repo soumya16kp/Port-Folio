@@ -68,7 +68,7 @@ const categories = [
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="relative  text-white py-16 px-6 overflow-hidden">
+    <section id="techstack" className="relative  text-white py-24 px-6 overflow-hidden">
       {/* Background elements */}
       
       

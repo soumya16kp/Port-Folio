@@ -34,7 +34,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="relative  text-white pt-16 pb-16  px-6 overflow-hidden">
+    <section id="education" className="relative  text-white py-24 pb-16  px-6 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-yellow rounded-full filter blur-3xl animate-float"></div>

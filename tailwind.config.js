@@ -13,7 +13,6 @@ module.exports = {
         'neon-purple': '#b000f0',
         'neon-cyan': '#00f7ff',
         'neon-green': '#39ff14',
-        // Dark background
         'dark': '#0a0a0a',
       },
       dropShadow: {
@@ -50,6 +49,8 @@ module.exports = {
         'nebula-pulse-delay': 'nebula-pulse 20s ease-in-out 5s infinite',
         'pulse-slow': 'pulse 10s ease-in-out infinite',
         'pulse-very-slow': 'pulse 20s ease-in-out infinite',
+        'spinGlow': 'spinGlow 6s linear infinite',
+        'pulseGlow': 'pulseGlow 2s ease-in-out infinite',
       },
       // MERGED KEYFRAMES
       keyframes: {
@@ -84,6 +85,14 @@ module.exports = {
         'nebula-pulse': {
           '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
           '50%': { opacity: '1', transform: 'scale(1.05)' },
+        },
+        spinGlow: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        pulseGlow: {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
         },
       },
       backdropBlur: {

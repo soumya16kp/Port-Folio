@@ -40,7 +40,7 @@ const AnimatedBackground = () => {
            style={{backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)'}}>
       </div>
             <div className="absolute inset-0 overflow-hidden opacity-02">
-        Planetary motion dots
+   
         <motion.div
           ref={pinkDotRef}
           className="absolute w-40 h-40 bg-neon-pink rounded-full mix-blend-screen filter blur-2xl"
@@ -72,7 +72,7 @@ const AnimatedBackground = () => {
       </div>
       <div className="absolute inset-0 opacity-50">
         {/* <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-neon-pink rounded-full filter blur-md animate-float"></div> */}
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-neon-cyan rounded-full filter blur-md animate-float-delay"></div>
+        <div className="absolute -top-24 -right-24 w-48 h-48 bg-neon-cyan rounded-full filter blur-2xl animate-float-delay"></div>
         <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-neon-yellow rounded-full filter blur-3xl animate-float-delay"></div>
       </div>
 
@@ -108,7 +108,7 @@ const AnimatedBackground = () => {
       
       {/* Cyberpunk stars with neon glow */}
       {[...Array(150)].map((_, i) => {
-        const size = 0.5 + Math.random() * 1.5;
+        const size = 0.5 + Math.random() * 2.5;
         const color = [
           'neon-cyan', 
           'neon-pink', 

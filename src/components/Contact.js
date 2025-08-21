@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
 import { FiSend, FiTwitter, FiLinkedin, FiGithub, FiDribbble } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import contactIllustration from '../images/Contact us-rafiki.svg'; // Update path to your image
+import emailjs from 'emailjs-com'; 
+import contactIllustration from '../images/Contact us-rafiki.svg';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -21,19 +22,29 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    formRef.current.reset();
-    
-    setTimeout(() => setSubmitSuccess(false), 3000);
+
+    emailjs.sendForm(
+      "service_hpjn2zh",       
+      "template_eozg4yi",       
+      formRef.current,
+      "d37svRYu9bsFt3_kh"        
+    )
+    .then(() => {
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      formRef.current.reset();
+      setTimeout(() => setSubmitSuccess(false), 3000);
+    })
+    .catch((error) => {
+      setIsSubmitting(false);
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Please try again later.");
+    });
   };
 
+
   return (
-    <div className="text-center mb-8">
+    <div id="contact" className="text-center pt-24 mb-8">
       <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">
           Contact
@@ -42,20 +53,15 @@ const ContactPage = () => {
       <div className="w-24 h-1 bg-gradient-to-r from-neon-pink to-neon-purple mx-auto rounded-full mb-12"></div>
 
     <div className="relative min-h-screen overflow-hidden flex items-center justify-center p-4 sm:p-6">
-      {/* Animated Gradient Background */}
-
-
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full "></div>
-        <div className="absolute inset-0 bg-noise opacity-10"></div>
-      </div>
+      
 
       {/* Main Glass Card */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative w-full max-w-6xl bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl overflow-hidden z-10 flex flex-col lg:flex-row"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative w-full max-w-6xl bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl overflow-hidden z-10 flex flex-col lg:flex-row"
         style={{
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
           background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)'
@@ -66,7 +72,7 @@ const ContactPage = () => {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="w-full bg-gradient-to-br from-indigo-400/10 to-purple-400/10 flex flex-col items-center justify-center p-8 md:p-12 min-h-[400px]"
+        className="w-full bg-gradient-to-br from-indigo-400/5 to-purple-400/5 flex flex-col items-center justify-center p-8 md:p-12 min-h-[400px]"
       > 
         {/* Text Section */}
         <div className="text-center mb-10">
@@ -74,7 +80,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70"
+            className="text-4xl md:text-5xl pb-2 font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70"
           >
             Let's Work Together
           </motion.h1>
@@ -95,11 +101,11 @@ const ContactPage = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
-          className="w-full max-w-[6600px] sm:max-w-[700px] lg:max-w-[700px] h-auto object-contain drop-shadow-xl"
+          className="w-full max-w-[4600px] sm:max-w-[700px] lg:max-w-[700px] max-h-[450px] object-contain drop-shadow-xl"
         />
       </motion.div>
 
-        <div className="w-full lg:w-3/5 p-8 md:p-12">
+        <div className="w-full lg:w-3/5 p-8 ">
     
           {/* Contact Form */}
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">

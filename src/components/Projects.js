@@ -92,7 +92,7 @@ const ProjectCard = ({ project }) => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
       viewport={{ once: true, amount: 0.2 }}
       className="group relative h-full "
     >
@@ -184,13 +184,13 @@ const ProjectCard = ({ project }) => {
 // --- MAIN SECTION COMPONENT ---
 export default function Projects() {
   return (
-    <section id="projects" className="relative text-white pt-16 pb-16 px-4 sm:px-6 overflow-hidden">
+    <section id="projects" className="relative text-white pt-24 pb-16 px-4 sm:px-6 overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.5 }}
           className="text-center mb-14"
         >

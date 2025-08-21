@@ -1,6 +1,16 @@
-import React from "react";
-
 export default function Navbar() {
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  };
+
+  const sections = [
+    { name: "About", id: "about" },
+    { name: "Tech Stack", id: "techstack" },
+    { name: "Projects", id: "projects" },
+    { name: "Education", id: "education" },
+    { name: "Contact", id: "contact" },
+  ];
+
   return (
     <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md">
       <nav className=" border-b-4 border-neon-cyan/70 shadow-[0_20px_20px_#00ffff20]">
@@ -11,12 +21,13 @@ export default function Navbar() {
             </span>
           </div>
           <ul className="flex space-x-6 text-lg white font-medium tracking-wide">
-            {["About", "Tech Stack", "Projects", "Education", "Contact"].map((item) => (
+            {sections.map((item) => (
               <li
-                key={item}
+                key={item.id}
                 className="hover:text-neon-cyan hover:drop-shadow-[0_0_8px_#00ffff] transition duration-300 cursor-pointer"
+                onClick={() => scrollToSection(item.id)}
               >
-                {item}
+                {item.name}
               </li>
             ))}
           </ul>
